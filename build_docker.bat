@@ -7,6 +7,6 @@ set MYDIR1=%MYDIR:~0,-1%
 for %%f in (%MYDIR1%) do set myfolder=%%~nxf
 
 echo Building docker image for %myfolder%.
-Rem docker build --tag %myfolder% .
+docker build --tag %myfolder% .
 
 PAUSE
