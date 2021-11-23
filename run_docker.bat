@@ -6,7 +6,11 @@ set MYDIR1=%MYDIR:~0,-1%
 
 for %%f in (%MYDIR1%) do set myfolder=%%~nxf
 
-echo Running docker image %myfolder% in container.
-docker run %myfolder%
+echo Removing old container.
+docker stop %myfolder%
+docker rm %myfolder%
+
+echo Running %myfolder% in new container.
+docker run -p 8080:8080 --name=%myfolder% %myfolder%
 
 PAUSE
